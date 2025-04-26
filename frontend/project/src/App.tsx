@@ -3,6 +3,7 @@ import React, { useState, useCallback } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { ClipboardCheck } from 'lucide-react';
 import { v4 as uuidv4 } from 'uuid';
+import { toast } from 'react-toastify';
 
 interface FormData {
   fullName: string;
@@ -112,9 +113,9 @@ function App() {
       setPrivacyAccepted(false);
       setRecaptchaValue(null);
   
-      alert('Audit completed! Report downloaded.');
+      toast.success('Report downloaded.');
     } catch (error: any) {
-      alert(error.message || 'An error occurred while submitting the form.');
+      toast.error(error.message || 'An error occurred while submitting the form.');
     } finally {
       setIsSubmitting(false);
     }
@@ -152,7 +153,7 @@ function App() {
               name="fullName"
               value={formData.fullName}
               onChange={handleInputChange}
-              className={`mt-1 block w-full rounded-md shadow-sm ${
+              className={`mt-1 block w-full rounded-md shadow-sm focus-visible:outline-none ${
                 errors.fullName ? 'border-red-300' : 'border-gray-300'
               } focus:border-indigo-500 focus:ring-indigo-500`}
             />
@@ -171,7 +172,7 @@ function App() {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className={`mt-1 block w-full rounded-md shadow-sm ${
+              className={`mt-1 block w-full rounded-md shadow-sm focus-visible:outline-none ${
                 errors.email ? 'border-red-300' : 'border-gray-300'
               } focus:border-indigo-500 focus:ring-indigo-500`}
             />
@@ -190,7 +191,7 @@ function App() {
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-              className={`mt-1 block w-full rounded-md shadow-sm ${
+              className={`mt-1 block w-full rounded-md shadow-sm focus-visible:outline-none ${
                 errors.phone ? 'border-red-300' : 'border-gray-300'
               } focus:border-indigo-500 focus:ring-indigo-500`}
             />
@@ -209,7 +210,7 @@ function App() {
               name="website"
               value={formData.website}
               onChange={handleInputChange}
-              className={`mt-1 block w-full rounded-md shadow-sm ${
+              className={`mt-1 block w-full rounded-md shadow-sm focus-visible:outline-none ${
                 errors.website ? 'border-red-300' : 'border-gray-300'
               } focus:border-indigo-500 focus:ring-indigo-500`}
               placeholder="https://"
