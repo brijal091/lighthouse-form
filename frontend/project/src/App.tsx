@@ -151,6 +151,7 @@ function App() {
               type="text"
               id="fullName"
               name="fullName"
+              disabled={isSubmitting} 
               value={formData.fullName}
               onChange={handleInputChange}
               className={`mt-1 block w-full rounded-md shadow-sm focus-visible:outline-none ${
@@ -169,6 +170,7 @@ function App() {
             <input
               type="email"
               id="email"
+              disabled={isSubmitting} 
               name="email"
               value={formData.email}
               onChange={handleInputChange}
@@ -188,6 +190,7 @@ function App() {
             <input
               type="tel"
               id="phone"
+              disabled={isSubmitting} 
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
@@ -207,6 +210,7 @@ function App() {
             <input
               type="url"
               id="website"
+              disabled={isSubmitting} 
               name="website"
               value={formData.website}
               onChange={handleInputChange}
@@ -233,6 +237,7 @@ function App() {
                 id="privacy"
                 name="privacy"
                 type="checkbox"
+                disabled={isSubmitting} 
                 checked={privacyAccepted}
                 onChange={(e) => setPrivacyAccepted(e.target.checked)}
                 className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
