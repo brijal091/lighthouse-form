@@ -14,6 +14,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-google-recaptcha": "^3.1.0",
+    "react-lottie": "^1.2.10",
     "react-toastify": "^11.0.5",
     "uuid": "^11.1.0"
   },
@@ -22,6 +23,7 @@
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "@types/react-google-recaptcha": "^2.1.9",
+    "@types/react-lottie": "^1.2.10",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.18",
     "eslint": "^9.9.1",
