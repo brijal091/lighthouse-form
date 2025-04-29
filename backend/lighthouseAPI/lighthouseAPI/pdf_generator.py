@@ -7,7 +7,8 @@ async def generate_pdf_from_html(html_path: str, pdf_path: str):
         page = await browser.new_page()
 
         # Open local file path
-        file_url = f'file:///{html_path.replace("\\", "/")}'  # make URL-friendly
+        html_path_fixed = html_path.replace('\\', '/')
+        file_url = f"file:///{html_path_fixed}"
         await page.goto(file_url, wait_until='networkidle')
 
         await asyncio.sleep(2)
