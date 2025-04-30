@@ -6,6 +6,7 @@ from uuid import UUID
 from pdf_generator import generate_pdf
 from lighthouse_runner import run_lighthouse  # function in separate file
 from flask_cors import CORS
+from goHighLevelManager import highLevelAPI
 
 app = Flask(__name__)
 CORS(app)
@@ -52,17 +53,14 @@ def audit_website():
     try:
         stdout, stderr = run_lighthouse(url, output_path, headless=True)
 
-        # Generate PDF
         pdf_path = os.path.join(report_dir, 'output.pdf')
+
         generate_pdf(output_path, pdf_path)
 
+        highLevelAPI(data)
+
+
         return send_file(pdf_path, as_attachment=True, download_name="lighthouse-report.pdf")
-        # return jsonify({
-        #     'message': 'Lighthouse report generated successfully',
-        #     'report_path': output_path,
-        #     'stdout': stdout[-1000:],  # send last 1000 chars only
-        #     'stderr': stderr[-1000:]
-        # }), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
